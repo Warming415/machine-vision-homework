@@ -1,0 +1,48 @@
+# ===== 编译产物 =====
+# 注意：这里的规则是「仓库级」的，对 homework1、homework2 等所有子目录一律生效，
+# 每个作业文件夹里不需要再放一份 .gitignore。
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+
+# 可执行文件与目标文件
+*.exe
+*.out
+*.o
+*.obj
+*.ilk
+*.pdb
+*.exp
+*.map
+*.idb
+
+# 库文件（本机链接的 OpenCV 库，别人克隆后自己配即可）
+*.lib
+*.dll
+*.a
+*.so
+*.dylib
+
+# ===== 编辑器 / IDE 本机配置 =====
+.vscode/
+.vs/
+*.suo
+*.user
+
+# ===== 运行产物 =====
+# 默认输出目录（结果图想上传时，把图放进 results/ 而不是 output/）
+output/
+result/
+*.log
+*.tmp
+
+# ===== 系统垃圾 =====
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# ===== OpenCV 本地安装副本（如果有人把库整个拖进仓库） =====
+opencv/
+opencv-build/
+lib/
