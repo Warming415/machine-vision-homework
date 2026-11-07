@@ -53,3 +53,18 @@ dkms.conf
 
 # debug information files
 *.dwo
+# VSCode本地配置（这些文件不会被 Git 上传到 GitHub 仓库里）
+.vscode/
+
+# OpenCV相关库文件与编译目录
+opencv/
+opencv-build/
+build/
+*.dll
+lib/
+
+# 运行输出图片、临时日志
+output/
+result/
+*.log
+*.tmp
