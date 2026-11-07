@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "cmake: configure",
+      "type": "shell",
+      "command": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+      "args": [
+        "-S",
+        "${workspaceFolder}",
+        "-B",
+        "${workspaceFolder}\\build",
+        "-G",
+        "Visual Studio 17 2022",
+        "-A",
+        "x64",
+        "-DOpenCV_DIR=D:/OpenCV_5.0.0/opencv/build"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "cmake: build",
+      "type": "shell",
+      "command": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+      "args": [
+        "--build",
+        "${workspaceFolder}\\build",
+        "--config",
+        "Release"
+      ],
+      "dependsOn": "cmake: configure",
+      "problemMatcher": ["$msCompile"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "run: rgb_pixel_demo (D:\\chiikawa)",
+      "type": "shell",
+      "command": "${workspaceFolder}\\build\\Release\\rgb_pixel_demo.exe",
+      "args": ["D:/chiikawa"],
+      "dependsOn": "cmake: build",
+      "problemMatcher": []
+    }
+  ]
+}
