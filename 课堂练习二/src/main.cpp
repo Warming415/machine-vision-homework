@@ -12,6 +12,15 @@
 //   6. 筛选：面积区间、圆度、不贴图像边界（排除照片边框）→ 计数
 //   7. 标注编号并输出结果图
 
+// Windows 控制台默认按 GBK 解码，而本程序统一输出 UTF-8，
+// 因此需要把控制台输出代码页切到 UTF-8，否则中文全是乱码。
+// NOMINMAX 必须定义，否则 windows.h 的 min/max 宏会破坏 std::min / std::max。
+#ifdef _WIN32
+#define WIN32_LEAN_AND_MEAN
+#define NOMINMAX
+#include <windows.h>
+#endif
+
 #include <opencv2/opencv.hpp>
 // OpenCV 5.0 把 contourArea / boundingRect / findContours 等轮廓几何函数
 // 从 imgproc 挪到了 geometry 模块，需要显式包含
@@ -85,6 +94,9 @@ double circularity(const std::vector<cv::Point>& contour, double area) {
 }  // namespace
 
 int main(int argc, char** argv) {
+#ifdef _WIN32
+    SetConsoleOutputCP(CP_UTF8);   // 控制台按 UTF-8 显示，避免中文乱码
+#endif
     Options opt;
     std::string inputGiven;
 

@@ -117,4 +117,6 @@ build\Release\coin_count.exe images/coins.jpg --out results --headless --debug  
 - **阈值方向和第二题相反**：回形针是亮背景暗物体（`THRESH_BINARY_INV`），硬币是暗背景亮物体（`THRESH_BINARY`），直接照搬上一题的代码会把背景当成目标；
 - **硬币表面会产生黑洞**：浮雕和高光让二值图里出现细小孔洞，若不闭合，一枚硬币可能被拆成多块或圆度明显下降；
 - **照片四周有亮边线**：这条线面积小但极细长，靠「圆度 + 贴边」两条规则才排掉；
-- **OpenCV 5.0 头文件位置**：`contourArea` / `boundingRect` / `arcLength` / `findContours` 在 `opencv2/geometry/2d.hpp`，只 include `opencv2.hpp` 会报 C3861。
+- **OpenCV 5.0 头文件位置**：`contourArea` / `boundingRect` / `arcLength` / `findContours` 在 `opencv2/geometry/2d.hpp`，只 include `opencv2.hpp` 会报 C3861；
+- **控制台中文乱码**：MSVC 控制台默认按 GBK 解码，程序输出 UTF-8，需要在 `main` 开头 `SetConsoleOutputCP(CP_UTF8)`；
+  且 `windows.h` 之前必须定义 `NOMINMAX`，否则它的 `min`/`max` 宏会把 `std::min` / `std::max` 破坏掉。
