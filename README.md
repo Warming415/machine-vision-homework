@@ -18,7 +18,7 @@ machine vision/            ← 仓库根目录（.git 在这一层，Git 只认�
 │   ├── images/            ← 输入图
 │   ├── results/           ← 结果图（要交的图放这里）
 │   └── README.md          ← 该次作业的实验报告
-└── homework2/             ← 第二次作业（结构同 homework1）
+└── 课堂练习一/            ← 课堂练习一（2026 年 11 月 13 日），结构随练习内容补齐
 ```
 
 哪些放仓库根、哪些放作业文件夹里：
@@ -27,7 +27,7 @@ machine vision/            ← 仓库根目录（.git 在这一层，Git 只认�
 | --- | --- |
 | `README.md`（总索引、学生信息） | `src/` 源码 |
 | `.gitignore`（**全仓库只放这一份**） | `CMakeLists.txt` 等工程文件 |
-| `homework1/`、`homework2/` 这些作业文件夹 | `images/` 输入图片 |
+| `homework1/`、`课堂练习一/` 这些作业文件夹 | `images/` 输入图片 |
 | — | `results/` 结果图 |
 | — | `.vscode/` 本机编辑器配置（不入库） |
 | — | `build/`、`output/` 编译与运行产物（不入库） |
@@ -37,7 +37,7 @@ machine vision/            ← 仓库根目录（.git 在这一层，Git 只认�
 | 编号 | 文件夹 | 内容 | 状态 |
 | --- | --- | --- | --- |
 | 实验 01 | [homework1](homework1/README.md) | RGB 图像像素操作（OpenCV C++） | 已完成 |
-| 实验 02 | [homework2](homework2/README.md) | 待完成 | 进行中 |
+| 课堂练习一 | [课堂练习一](课堂练习一/README.md) | 2026 年 11 月 13 日课堂练习 | 待接到要求 |
 
 ## 每次作业的操作流程
 
