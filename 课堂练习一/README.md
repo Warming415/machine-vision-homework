@@ -118,4 +118,8 @@ build\Release\paperclip_count.exe images/paperclips.jpg --out results --headless
   否则会多算 1 个；
 - **内层轮廓会重复计数**：`RETR_CCOMP` 下每个回形针还有 2 个内部区域轮廓（26 个），只取 `hierarchy[i][3] == -1`
   的最外层轮廓，否则会把 13 个算成 39 个；
-- 阈值不能写死：本次 Otsu 自动取 118，若改用固定阈值，光照稍变就会漏检。
+- 阈值不能写死：本次 Otsu 自动取 118，若改用固定阈值，光照稍变就会漏检；
+- **控制台中文乱码**：程序按 UTF-8 输出，而 Windows 控制台默认按 GBK（代码页 936）解码，直接运行时中文全是乱码。
+  已在 `main()` 开头加 `SetConsoleOutputCP(CP_UTF8)` 修正，`run.bat` 里也保留了 `chcp 65001`。
+  注意包含 `windows.h` 前必须定义 `NOMINMAX`，否则它的 `min`/`max` 宏会让 `std::min` / `std::max` 编译失败。
+
